@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Game_Over.gd" type="Script" id=1]
+[ext_resource path="res://img/bgGame_Over.jpg" type="Texture" id=2]
+
+[node name="Game_Over" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bgGame_Over" type="Sprite" parent="."]
+position = Vector2( 511.764, 298.649 )
+scale = Vector2( 0.809774, 0.604971 )
+texture = ExtResource( 2 )
+
+[node name="Point" type="Label" parent="."]
+margin_left = 409.932
+margin_top = 327.582
+margin_right = 449.932
+margin_bottom = 341.582
+rect_scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

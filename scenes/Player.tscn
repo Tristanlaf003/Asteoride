@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Balle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://img/vaisseau.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+balle = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1.69331, -10.3314 )
+scale = Vector2( 0.429024, 0.443381 )
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -11.5133, 4.21811 )
+rotation = 1.5708
+scale = Vector2( 1.64191, 0.944679 )
+build_mode = 1
+polygon = PoolVector2Array( -5.29183, -40.3799, -5.26342, -47.5825, -7.67942, -47.3722, -7.5657, -35.3327, -7.56568, -21.4532, -10.8151, -21.4742, -16.8625, -21.5529, -18.5741, -20.6737, -21.3942, -19.4797, -17.7142, 18.227, -14.7757, 17.5181, -15.1164, 10.1922, -14.3138, 8.5782, -12.4143, 6.87439, -8.44247, 6.68505, -6.42778, 8.10487, -4.45156, 8.9158, -4.47545, 12.9831, 2.58977, 12.8932, 2.64913, 9.17133, 10.1469, 6.40166, 13.4611, 10.5114, 12.7309, 13.2867, 12.699, 17.5946, 15.7937, 17.9487, 16.3361, 11.6934, 18.3779, -9.37409, 19.1117, -19.9963, 15.5384, -21.5896, 13.5604, -21.5896, 13.018, -20.0553, 12.6831, -13.6134, 11.9799, -13.4639, 11.9799, -16.6822, 11.3467, -18.6699, 9.72234, -22.0786, 7.40199, -21.9167, 6.1412, -20.2257, 6.11177, -17.4712, 5.19614, -17.609, 5.39626, -22.2521, 5.70559, -27.4728, 5.66458, -30.2126, 5.19612, -30.055, 4.90832, -47.7242, 2.98214, -47.6951, 2.82384, -46.2042, 2.85263, -42.418, 2.75204, -40.6954 )
+
+[node name="Canon" type="Position2D" parent="."]
+position = Vector2( 43.1753, 0 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 7.97075, 1.74734 )
+scale = Vector2( 3.84577, 3.66377 )
+[connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
